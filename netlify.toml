@@ -1,0 +1,8 @@
+[build]
+  publish = "."
+  command = "echo 'SiteRise ready'"
+
+[[redirects]]
+  from = "/book"
+  to = "/book.html"
+  status = 200
