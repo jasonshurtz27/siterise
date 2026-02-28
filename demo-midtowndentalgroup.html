@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Midtown Dental Group — Website Redesign Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --black: #0a0a0a; --white: #f9f8f5; --gray: #5a5a5a; --light: #f0efe9; --green: #1e6b45; --red: #c0392b; }
+    body { font-family: 'Figtree', sans-serif; background: var(--white); color: var(--black); }
+    
+    .banner { background: var(--black); color: white; padding: 12px 32px; display: flex; justify-content: space-between; align-items: center; }
+    .banner-left { font-size: 0.75rem; color: rgba(255,255,255,0.5); }
+    .banner-left strong { color: white; }
+    .banner-right { display: flex; align-items: center; gap: 16px; }
+    .banner-cta { font-size: 0.78rem; font-weight: 700; color: white; background: var(--green); padding: 8px 16px; border-radius: 6px; text-decoration: none; }
+    
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 48px; border-bottom: 1px solid rgba(0,0,0,0.06); }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; }
+    .logo span { color: var(--green); }
+    
+    .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(0,0,0,0.05); margin: 48px 0; }
+    .comparison-item { background: white; padding: 32px; }
+    .comparison-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 12px; border-radius: 4px; margin-bottom: 16px; display: inline-block; }
+    .comparison-label.before { background: rgba(192,57,43,0.2); color: var(--red); }
+    .comparison-label.after { background: var(--light); color: var(--green); }
+    
+    .site-frame { border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; background: white; padding: 20px; text-align: center; }
+    .site-frame p { font-size: 0.85rem; color: var(--gray); margin-bottom: 12px; }
+    .site-link { display: inline-block; font-size: 0.85rem; font-weight: 600; color: white; background: var(--green); padding: 10px 20px; border-radius: 6px; text-decoration: none; }
+    .site-link:hover { background: #155235; }
+    
+    .issues { background: #fee5e5; border-left: 4px solid var(--red); padding: 16px; border-radius: 6px; margin-top: 16px; }
+    .issues h4 { color: var(--red); font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; }
+    .issues ul { margin: 0; padding-left: 20px; font-size: 0.8rem; color: var(--gray); }
+    .issues li { margin: 4px 0; }
+    
+    .redesign-features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 16px; }
+    .feature { padding: 12px; background: var(--light); border-radius: 6px; font-size: 0.8rem; }
+    .feature::before { content: '✓'; color: var(--green); font-weight: 700; margin-right: 6px; }
+    
+    .cta-section { padding: 48px 32px; background: var(--black); color: white; text-align: center; border-radius: 8px; margin-top: 32px; }
+    .cta-section h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; margin-bottom: 12px; }
+    .cta-section p { font-size: 0.9rem; color: rgba(255,255,255,0.6); margin-bottom: 20px; }
+    .cta-button { display: inline-block; font-size: 0.95rem; font-weight: 700; color: white; background: var(--green); padding: 14px 32px; border-radius: 6px; text-decoration: none; }
+    
+    .container { max-width: 1000px; margin: 0 auto; padding: 48px 32px; }
+    
+    @media (max-width: 800px) {
+      .comparison { grid-template-columns: 1fr; }
+      .redesign-features { grid-template-columns: 1fr; }
+      .banner, nav, .container { padding-left: 16px; padding-right: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <div class="banner-left">Free custom preview for <strong>Midtown Dental Group</strong> — no commitment required</div>
+    <div class="banner-right">
+      <a href="tel:(212) 730-4440" style="color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.75rem;">(212) 730-4440</a>
+      <a href="https://siterise.co/book.html" class="banner-cta">Book a call →</a>
+    </div>
+  </div>
+  
+  <nav>
+    <div class="logo">Site<span>Rise</span></div>
+  </nav>
+  
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 48px;">
+      <h1 style="font-family:'Playfair Display',serif; font-size: 2.2rem; font-weight: 900; margin-bottom: 12px; letter-spacing: -0.02em;">
+        This is your new website
+      </h1>
+      <p style="font-size: 0.95rem; color: var(--gray); max-width: 500px; margin: 0 auto;">
+        See the difference between your current site and what we'd build for Midtown Dental Group in Tribeca.
+      </p>
+    </div>
+    
+    <div class="comparison">
+      <div class="comparison-item">
+        <div class="comparison-label before">Your Current Site</div>
+        <div class="site-frame">
+          <p>Visit your website to see what patients experience</p>
+          <a href="http://www.midtowndentalgroup.com/" target="_blank" class="site-link">View Midtown Dental Group</a>
+          <div class="issues">
+            <h4>What we'd improve:</h4>
+            <ul>
+              <li>Modern, professional design</li>
+              <li>Mobile-optimized experience</li>
+              <li>Clear booking/contact CTAs</li>
+              <li>Fast page load speed</li>
+              <li>SEO optimization</li>
+              <li>Mobile-friendly layout</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="comparison-item">
+        <div class="comparison-label after">Your New Site (SiteRise)</div>
+        <div class="site-frame">
+          <p>Modern, custom-built for patient conversion</p>
+          <div style="background: var(--light); padding: 20px; border-radius: 6px; margin: 16px 0;">
+            <div style="font-size: 0.9rem; color: var(--gray); margin-bottom: 12px;">
+              Professional hero section · Clear services · Easy booking · Mobile perfect · Fast & ranked
+            </div>
+          </div>
+          <div class="redesign-features">
+            <div class="feature">Modern professional design</div>
+            <div class="feature">Mobile optimized</div>
+            <div class="feature">Easy online booking</div>
+            <div class="feature">SEO ready</div>
+            <div class="feature">Fast loading</div>
+            <div class="feature">Google friendly</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div style="background: var(--light); padding: 20px; border-radius: 8px; margin: 32px 0;">
+      <h3 style="font-size: 0.9rem; font-weight: 600; margin-bottom: 12px;">What This Means for Your Practice</h3>
+      <ul style="margin: 0; padding-left: 20px; font-size: 0.85rem; color: var(--gray);">
+        <li>More patient inquiries online</li>
+        <li>Higher Google ranking (local searches)</li>
+        <li>Professional first impression</li>
+        <li>Easy scheduling from any device</li>
+        <li>Competitive advantage vs other Midtown dentists</li>
+      </ul>
+    </div>
+    
+    <div class="cta-section">
+      <h2>Ready to move forward?</h2>
+      <p>This is exactly what your new site looks like. If you love it, we launch in 3 days for $500.</p>
+      <a href="https://siterise.co/book.html" class="cta-button">Schedule a 15-Minute Call</a>
+      <p style="margin-top: 16px; font-size: 0.8rem; color: rgba(255,255,255,0.4);">No commitment required.</p>
+    </div>
+  </div>
+</body>
+</html>
