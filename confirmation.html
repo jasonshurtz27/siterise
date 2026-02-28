@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You're in! — SiteRise</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --black: #0a0a0a; --white: #f9f8f5; --green: #1e6b45; --green-light: #e8f4ed; --gray: #666; --light: #f0efe9; }
+    body { font-family: 'Figtree', sans-serif; background: var(--black); color: white; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 24px; text-align: center; }
+
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: white; text-decoration: none; position: fixed; top: 24px; left: 40px; }
+    .logo span { color: #6fcf97; }
+
+    .icon { font-size: 4rem; margin-bottom: 24px; animation: pop 0.5s ease; }
+    @keyframes pop { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+    h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 16px; }
+    h1 em { font-style: italic; color: #6fcf97; }
+
+    .sub { font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.5); max-width: 460px; line-height: 1.7; margin-bottom: 48px; }
+
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 620px; margin-bottom: 48px; }
+    .step { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 24px 16px; }
+    .step-num { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #6fcf97; margin-bottom: 8px; }
+    .step-text { font-size: 0.88rem; font-weight: 400; color: rgba(255,255,255,0.7); line-height: 1.5; }
+
+    .divider { width: 40px; height: 1px; background: rgba(255,255,255,0.15); margin: 0 auto 32px; }
+
+    .cta-text { font-size: 0.85rem; color: rgba(255,255,255,0.35); margin-bottom: 16px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-size: 0.88rem; font-weight: 600; color: white; background: var(--green); padding: 14px 28px; border-radius: 8px; text-decoration: none; transition: background 0.2s; }
+    .btn:hover { background: #155235; }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.4); text-decoration: none; margin-left: 16px; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 2px; }
+    .btn-ghost:hover { color: rgba(255,255,255,0.7); }
+
+    @media (max-width: 600px) {
+      .steps { grid-template-columns: 1fr; }
+      .logo { left: 20px; }
+      .btn-ghost { display: block; margin-left: 0; margin-top: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <a href="/" class="logo">Site<span>Rise</span></a>
+
+  <div class="icon">🦷</div>
+  <h1>You're in.<br>Preview ready in <em>48 hours.</em></h1>
+  <p class="sub">We've got your request. Jason will personally build your custom preview and send it to your inbox within 48 hours. Keep an eye out — it'll be worth the wait.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">Now</div>
+      <div class="step-text">We review your current site and start designing your preview</div>
+    </div>
+    <div class="step">
+      <div class="step-num">Within 48hrs</div>
+      <div class="step-text">You get a link to your custom preview in your inbox</div>
+    </div>
+    <div class="step">
+      <div class="step-num">You decide</div>
+      <div class="step-text">Love it? We go live. Don't love it? You owe nothing.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <p class="cta-text">In the meantime, see what's possible →</p>
+  <div>
+    <a href="/examples.html" class="btn">See before & after examples</a>
+    <a href="/" class="btn-ghost">Back to home</a>
+  </div>
+</body>
+</html>

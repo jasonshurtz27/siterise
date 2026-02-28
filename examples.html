@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Before & After Examples — SiteRise</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --black: #0a0a0a; --white: #f9f8f5; --green: #1e6b45; --green-light: #e8f4ed; --gray: #666; --light: #f0efe9; --red: #c0392b; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Figtree', sans-serif; background: var(--white); color: var(--black); }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 20px 48px; background: rgba(249,248,245,0.94); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(0,0,0,0.07); }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--black); text-decoration: none; }
+    .logo span { color: var(--green); }
+    .nav-cta { font-size: 0.82rem; font-weight: 600; color: white; background: var(--green); padding: 10px 24px; border-radius: 6px; text-decoration: none; }
+    .nav-cta:hover { background: #155235; }
+
+    .hero { padding: 140px 48px 80px; max-width: 700px; }
+    .tag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 14px; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .hero h1 em { font-style: italic; color: var(--green); }
+    .hero p { font-size: 1rem; font-weight: 300; color: var(--gray); line-height: 1.7; max-width: 520px; }
+
+    .examples { padding: 0 48px 100px; }
+
+    .example { margin-bottom: 80px; }
+    .example-label { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .example-num { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 900; color: rgba(0,0,0,0.15); }
+    .example-title { font-size: 1rem; font-weight: 600; }
+    .example-tag { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; background: var(--green-light); color: var(--green); padding: 3px 10px; border-radius: 100px; }
+
+    .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+    .ba-item { position: relative; }
+    .ba-label { position: absolute; top: 14px; left: 14px; z-index: 2; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 4px; }
+    .ba-label.before { background: var(--red); color: white; }
+    .ba-label.after { background: var(--green); color: white; }
+    .ba-mockup { border: 1px solid rgba(0,0,0,0.09); border-radius: 10px; overflow: hidden; background: white; }
+    .ba-bar { padding: 10px 14px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.06); background: #f5f5f5; }
+    .ba-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .ba-dot.r{background:#ff5f57} .ba-dot.y{background:#febc2e} .ba-dot.g{background:#28c840}
+    .ba-url { font-size: 0.62rem; color: var(--gray); background: white; padding: 2px 10px; border-radius: 100px; margin-left: 6px; border: 1px solid rgba(0,0,0,0.08); }
+
+    /* BAD SITE STYLES */
+    .bad-nav { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; background: #003087; }
+    .bad-nav-logo { font-size: 0.62rem; font-weight: bold; color: white; font-family: Times, serif; }
+    .bad-nav-links { display: flex; gap: 8px; }
+    .bad-nav-link { font-size: 0.48rem; color: rgba(255,255,255,0.7); }
+    .bad-hero-block { padding: 20px 16px; text-align: center; }
+    .bad-hero-block.blue { background: #003087; }
+    .bad-hero-block.gray { background: #888; }
+    .bad-hero-block.brown { background: #5c3d2e; }
+    .bad-hero-h { font-size: 0.82rem; font-weight: bold; color: white; margin-bottom: 5px; font-family: Times, serif; }
+    .bad-hero-sub { font-size: 0.52rem; color: rgba(255,255,255,0.55); margin-bottom: 10px; }
+    .bad-btn { font-size: 0.52rem; background: #ff6600; color: white; padding: 5px 10px; display: inline-block; border-radius: 2px; }
+    .bad-btn.green { background: #2e7d32; }
+    .bad-body { padding: 14px 16px; }
+    .bad-h3 { font-size: 0.58rem; font-weight: bold; color: #003087; margin-bottom: 3px; font-family: Times, serif; }
+    .bad-h3.brown { color: #5c3d2e; }
+    .bad-p { font-size: 0.46rem; color: #555; line-height: 1.4; margin-bottom: 8px; }
+    .bad-img-placeholder { height: 60px; background: #ddd; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.5rem; color: #999; }
+    .bad-footer { background: #1a1a1a; padding: 8px; }
+    .bad-footer p { font-size: 0.42rem; color: rgba(255,255,255,0.35); text-align: center; }
+    .bad-wordart { font-size: 1rem; font-weight: 900; color: #003087; font-family: Impact, serif; text-shadow: 2px 2px 0 rgba(0,0,255,0.2); margin-bottom: 4px; }
+
+    /* GOOD SITE STYLES */
+    .good-hero { padding: 24px 18px; }
+    .good-hero.dark { background: #0a0a0a; }
+    .good-hero.warm { background: #1a1008; }
+    .good-hero.teal { background: #0a2a2a; }
+    .good-tag2 { font-size: 0.48rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 7px; }
+    .good-h { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: white; line-height: 1.2; margin-bottom: 6px; }
+    .good-h em { font-style: italic; }
+    .good-h em.green { color: #6fcf97; }
+    .good-h em.gold { color: #f0c060; }
+    .good-h em.teal { color: #5eead4; }
+    .good-sub { font-size: 0.52rem; color: rgba(255,255,255,0.45); margin-bottom: 12px; line-height: 1.5; }
+    .good-cta-btn { display: inline-block; font-size: 0.55rem; font-weight: 700; color: white; padding: 7px 14px; border-radius: 5px; }
+    .good-cta-btn.green { background: #1e6b45; }
+    .good-cta-btn.gold { background: #b8860b; }
+    .good-cta-btn.teal { background: #0d9488; }
+    .good-body { padding: 14px 18px; }
+    .good-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; margin-bottom: 12px; }
+    .good-card { border-radius: 6px; padding: 9px 8px; }
+    .good-card.light { background: var(--light); }
+    .good-card.warm-light { background: #fdf6e3; }
+    .good-card.teal-light { background: #f0fdf9; }
+    .good-card-icon { font-size: 0.85rem; margin-bottom: 3px; }
+    .good-card-title { font-size: 0.5rem; font-weight: 600; margin-bottom: 2px; }
+    .good-card-text { font-size: 0.43rem; color: var(--gray); line-height: 1.3; }
+    .good-review { border-radius: 6px; padding: 10px; border-left: 3px solid; }
+    .good-review.green { background: var(--green-light); border-color: var(--green); }
+    .good-review.gold { background: #fdf8e1; border-color: #b8860b; }
+    .good-review.teal { background: #f0fdf9; border-color: #0d9488; }
+    .good-review-text { font-size: 0.5rem; font-style: italic; color: var(--black); margin-bottom: 5px; line-height: 1.4; }
+    .good-review-author { font-size: 0.43rem; font-weight: 600; }
+    .good-review-author.green { color: var(--green); }
+    .good-review-author.gold { color: #b8860b; }
+    .good-review-author.teal { color: #0d9488; }
+
+    .example-issues { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+    .issue-tag { font-size: 0.7rem; font-weight: 500; background: rgba(192,57,43,0.08); color: var(--red); padding: 4px 10px; border-radius: 100px; }
+    .fix-tag { font-size: 0.7rem; font-weight: 500; background: var(--green-light); color: var(--green); padding: 4px 10px; border-radius: 100px; }
+
+    .cta-section { background: var(--black); color: white; padding: 80px 48px; text-align: center; }
+    .cta-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .cta-section h2 em { font-style: italic; color: #6fcf97; }
+    .cta-section p { font-size: 0.95rem; color: rgba(255,255,255,0.45); margin-bottom: 36px; }
+    .btn-cta { display: inline-flex; align-items: center; gap: 8px; font-size: 1rem; font-weight: 700; color: white; background: var(--green); padding: 18px 40px; border-radius: 8px; text-decoration: none; transition: background 0.2s; }
+    .btn-cta:hover { background: #155235; }
+
+    footer { padding: 28px 48px; border-top: 1px solid rgba(0,0,0,0.07); display: flex; justify-content: space-between; align-items: center; }
+    footer p { font-size: 0.76rem; color: var(--gray); }
+
+    @media (max-width: 768px) {
+      nav, .hero, .examples, footer { padding-left: 20px; padding-right: 20px; }
+      .ba-grid { grid-template-columns: 1fr; }
+      .cta-section { padding: 60px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">Site<span>Rise</span></a>
+  <a href="/#get-preview" class="nav-cta">Get Free Preview</a>
+</nav>
+
+<div class="hero">
+  <p class="tag">Before & After</p>
+  <h1>See what's <em>possible.</em></h1>
+  <p>Every practice is different — but the problems are almost always the same. Here's what we fix, and what we build instead.</p>
+</div>
+
+<div class="examples">
+
+  <!-- EXAMPLE 1 -->
+  <div class="example">
+    <div class="example-label">
+      <span class="example-num">01</span>
+      <span class="example-title">General Dental Practice</span>
+      <span class="example-tag">Most common</span>
+    </div>
+    <div class="ba-grid">
+      <div class="ba-item">
+        <span class="ba-label before">Before</span>
+        <div class="ba-mockup">
+          <div class="ba-bar"><div class="ba-dot r"></div><div class="ba-dot y"></div><div class="ba-dot g"></div><span class="ba-url">brightsmiledental.net</span></div>
+          <div class="bad-nav"><div class="bad-nav-logo">BRIGHT SMILE DENTAL</div><div class="bad-nav-links"><span class="bad-nav-link">Home</span><span class="bad-nav-link">About</span><span class="bad-nav-link">Services</span><span class="bad-nav-link">Contact</span></div></div>
+          <div class="bad-hero-block blue">
+            <div class="bad-wordart">Welcome!</div>
+            <div class="bad-hero-sub">Serving the community for over 20 years</div>
+            <div class="bad-btn">Click Here</div>
+          </div>
+          <div class="bad-body">
+            <div class="bad-h3">Our Services</div>
+            <div class="bad-p">We offer cleanings, fillings, crowns, bridges, root canals and more. Call to schedule.</div>
+            <div class="bad-img-placeholder">[ image missing ]</div>
+            <div class="bad-footer"><p>© 2009 Bright Smile Dental. All Rights Reserved.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="ba-item">
+        <span class="ba-label after">After</span>
+        <div class="ba-mockup">
+          <div class="ba-bar"><div class="ba-dot r"></div><div class="ba-dot y"></div><div class="ba-dot g"></div><span class="ba-url">brightsmiledental.com</span></div>
+          <div class="good-hero dark">
+            <div class="good-tag2">Manhattan's trusted dental practice</div>
+            <div class="good-h">Your smile is worth <em class="green">showing off.</em></div>
+            <div class="good-sub">Modern, gentle care. New patients welcome — same-week appointments available.</div>
+            <div class="good-cta-btn green">Book Your Appointment →</div>
+          </div>
+          <div class="good-body">
+            <div class="good-cards">
+              <div class="good-card light"><div class="good-card-icon">🦷</div><div class="good-card-title">General Care</div><div class="good-card-text">Cleanings & preventive care</div></div>
+              <div class="good-card light"><div class="good-card-icon">✨</div><div class="good-card-title">Cosmetic</div><div class="good-card-text">Whitening & veneers</div></div>
+              <div class="good-card light"><div class="good-card-icon">🚨</div><div class="good-card-title">Emergency</div><div class="good-card-text">Same-day available</div></div>
+            </div>
+            <div class="good-review green"><div class="good-review-text">"Booked online in 30 seconds, seen same week. Best dental experience I've had."</div><div class="good-review-author green">⭐⭐⭐⭐⭐ — Sarah M.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="example-issues">
+      <span class="issue-tag">❌ Broken image</span>
+      <span class="issue-tag">❌ No booking button</span>
+      <span class="issue-tag">❌ Copyright 2009</span>
+      <span class="issue-tag">❌ Not mobile-friendly</span>
+      <span class="fix-tag">✓ Clear CTA above fold</span>
+      <span class="fix-tag">✓ Reviews front & center</span>
+      <span class="fix-tag">✓ Mobile-first design</span>
+    </div>
+  </div>
+
+  <!-- EXAMPLE 2 -->
+  <div class="example">
+    <div class="example-label">
+      <span class="example-num">02</span>
+      <span class="example-title">Family & Cosmetic Dentistry</span>
+    </div>
+    <div class="ba-grid">
+      <div class="ba-item">
+        <span class="ba-label before">Before</span>
+        <div class="ba-mockup">
+          <div class="ba-bar"><div class="ba-dot r"></div><div class="ba-dot y"></div><div class="ba-dot g"></div><span class="ba-url">familydentistnyc.com</span></div>
+          <div class="bad-nav" style="background:#5c3d2e"><div class="bad-nav-logo" style="font-family:Arial">Family Dentist NYC</div><div class="bad-nav-links"><span class="bad-nav-link">HOME</span><span class="bad-nav-link">SERVICES</span><span class="bad-nav-link">ABOUT</span><span class="bad-nav-link">CONTACT</span></div></div>
+          <div class="bad-hero-block brown">
+            <div class="bad-hero-h">Dr. Michael Torres DDS</div>
+            <div class="bad-hero-sub">Family & Cosmetic Dentistry • Accepting New Patients • Most Insurance Accepted</div>
+            <div class="bad-btn green">Schedule Appointment</div>
+          </div>
+          <div class="bad-body">
+            <div class="bad-h3 brown">Welcome to Our Practice</div>
+            <div class="bad-p">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud.</div>
+            <div class="bad-h3 brown">Office Hours</div>
+            <div class="bad-p">Mon-Fri 9am-5pm | Sat 9am-1pm | Sun Closed</div>
+            <div class="bad-footer"><p>© 2014 Family Dentist NYC | Powered by GoDaddy</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="ba-item">
+        <span class="ba-label after">After</span>
+        <div class="ba-mockup">
+          <div class="ba-bar"><div class="ba-dot r"></div><div class="ba-dot y"></div><div class="ba-dot g"></div><span class="ba-url">drtorresnyc.com</span></div>
+          <div class="good-hero warm">
+            <div class="good-tag2">Family & cosmetic dentistry · NYC</div>
+            <div class="good-h">The smile your family <em class="gold">deserves.</em></div>
+            <div class="good-sub">Dr. Torres has cared for NYC families for 15+ years. Gentle, modern, and always welcoming new patients.</div>
+            <div class="good-cta-btn gold">Book an Appointment →</div>
+          </div>
+          <div class="good-body">
+            <div class="good-cards">
+              <div class="good-card warm-light"><div class="good-card-icon">👨‍👩‍👧</div><div class="good-card-title">Family Care</div><div class="good-card-text">All ages welcome</div></div>
+              <div class="good-card warm-light"><div class="good-card-icon">💎</div><div class="good-card-title">Cosmetic</div><div class="good-card-text">Smile makeovers</div></div>
+              <div class="good-card warm-light"><div class="good-card-icon">🏥</div><div class="good-card-title">Emergency</div><div class="good-card-text">Same-day slots</div></div>
+            </div>
+            <div class="good-review gold"><div class="good-review-text">"Dr. Torres has been our family dentist for 8 years. The new site made it so easy to book."</div><div class="good-review-author gold">⭐⭐⭐⭐⭐ — The Kim Family</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="example-issues">
+      <span class="issue-tag">❌ Lorem ipsum placeholder text</span>
+      <span class="issue-tag">❌ Generic GoDaddy template</span>
+      <span class="issue-tag">❌ No personality</span>
+      <span class="fix-tag">✓ Personal brand voice</span>
+      <span class="fix-tag">✓ Family-focused messaging</span>
+      <span class="fix-tag">✓ Trust-building design</span>
+    </div>
+  </div>
+
+  <!-- EXAMPLE 3 -->
+  <div class="example">
+    <div class="example-label">
+      <span class="example-num">03</span>
+      <span class="example-title">Specialty / Implant Practice</span>
+    </div>
+    <div class="ba-grid">
+      <div class="ba-item">
+        <span class="ba-label before">Before</span>
+        <div class="ba-mockup">
+          <div class="ba-bar"><div class="ba-dot r"></div><div class="ba-dot y"></div><div class="ba-dot g"></div><span class="ba-url">nycimplants.net</span></div>
+          <div class="bad-nav" style="background:#1a1a2e"><div class="bad-nav-logo">NYC IMPLANT CENTER</div><div class="bad-nav-links"><span class="bad-nav-link">Home</span><span class="bad-nav-link">Implants</span><span class="bad-nav-link">FAQ</span><span class="bad-nav-link">Contact</span></div></div>
+          <div class="bad-hero-block" style="background:#1a1a2e">
+            <div class="bad-hero-h" style="font-size:0.7rem">DENTAL IMPLANTS · SAME DAY TEETH · ALL-ON-4</div>
+            <div class="bad-hero-sub">Starting at $999 per implant. Call now for FREE consultation!</div>
+            <div class="bad-btn" style="background:red">CALL NOW: (212) 555-0100</div>
+          </div>
+          <div class="bad-body">
+            <div style="background:#ffffcc;padding:8px;margin-bottom:8px;font-size:0.5rem;border:1px solid #ccc">⚠️ LIMITED TIME OFFER: Free X-Ray with consultation. Expires soon!</div>
+            <div class="bad-p">Are you tired of missing teeth? Dental implants are the #1 solution. We offer the best prices in NYC. Don't wait — call today!</div>
+            <div class="bad-footer"><p>© 2017 NYC Implant Center | All Rights Reserved</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="ba-item">
+        <span class="ba-label after">After</span>
+        <div class="ba-mockup">
+          <div class="ba-bar"><div class="ba-dot r"></div><div class="ba-dot y"></div><div class="ba-dot g"></div><span class="ba-url">nycimplantcenter.com</span></div>
+          <div class="good-hero teal">
+            <div class="good-tag2">NYC's implant specialists</div>
+            <div class="good-h">Permanent teeth.<br><em class="teal">Permanent confidence.</em></div>
+            <div class="good-sub">Same-day implants, All-on-4, and full-mouth restorations. Free consultations available.</div>
+            <div class="good-cta-btn teal">Book Free Consultation →</div>
+          </div>
+          <div class="good-body">
+            <div class="good-cards">
+              <div class="good-card teal-light"><div class="good-card-icon">🦷</div><div class="good-card-title">Single Implant</div><div class="good-card-text">Permanent & natural-looking</div></div>
+              <div class="good-card teal-light"><div class="good-card-icon">😁</div><div class="good-card-title">All-on-4</div><div class="good-card-text">Full arch, same day</div></div>
+              <div class="good-card teal-light"><div class="good-card-icon">💳</div><div class="good-card-title">Financing</div><div class="good-card-text">0% options available</div></div>
+            </div>
+            <div class="good-review teal"><div class="good-review-text">"I got my life back. Same-day implants changed everything — I can finally eat and smile again."</div><div class="good-review-author teal">⭐⭐⭐⭐⭐ — Robert T.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="example-issues">
+      <span class="issue-tag">❌ Spam-like design</span>
+      <span class="issue-tag">❌ Fake urgency banners</span>
+      <span class="issue-tag">❌ Destroys trust</span>
+      <span class="fix-tag">✓ Professional & credible</span>
+      <span class="fix-tag">✓ Emotion-led copy</span>
+      <span class="fix-tag">✓ Clear service breakdown</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Want to see yours?<br>We'll build it <em>first.</em></h2>
+  <p>Free custom preview in 48 hours. No payment until you love it.</p>
+  <a href="/#get-preview" class="btn-cta">Get your free preview →</a>
+</div>
+
+<footer>
+  <a href="/" class="logo">Site<span>Rise</span></a>
+  <p>© 2026 SiteRise &nbsp;·&nbsp; jason@siterise.co</p>
+</footer>
+
+</body>
+</html>
