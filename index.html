@@ -1,28 +1,3 @@
-<!DGood call — less about you, more about them. Let me rethink the messaging and update the whole site to speak directly to dentists.
-
-Key changes:
-- Remove the Jason bio section entirely
-- Hero copy speaks directly to dentists ("your patients are Googling you right now")
-- Tag line shifts from "for dental practices" to something that hits harder
-- Everything feels like it was built specifically for dentists, not a general web agency that also does dental
-
-Give me a few minutes.Now let me also add a dentist-specific trust section to replace the bio — something that shows we understand their world.Now push to GitHub via Bane. Send him this:
-
-```
-cd /root/siterise && git pull && cat > index.html << 'HTMLEOF'
-```
-
-Wait — actually the file is too large to paste. Better approach — send Bane this message:
-
-> "Go to github.com/jasonshurtz27/siterise, I need to update index.html with a new version. How can Claude send you the file content to push?"
-
-Actually the cleanest way: download the updated index.html from this chat and have Bane handle it.Download that, drop it in your siterise folder, then tell Bane:
-
-```
-cd /root/siterise && git add . && git commit -m "dentist-focused copy, remove bio, add stats section" && git push
-```
-
-Netlify deploys in 30 seconds. What do you think of the new direction?OCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
