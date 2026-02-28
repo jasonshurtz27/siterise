@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bright Smile Dental — New Website Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --black: #0a0a0a; --white: #f9f8f5; --gray: #5a5a5a; --light: #f0efe9; --green: #1e6b45; --green-light: #e8f4ed; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Figtree', sans-serif; background: var(--white); color: var(--black); }
+    
+    .preview-banner { background: var(--black); color: white; padding: 12px 32px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 200; }
+    .preview-banner-left { font-size: 0.75rem; color: rgba(255,255,255,0.45); }
+    .preview-banner-left strong { color: white; font-weight: 600; }
+    .preview-banner-right { display: flex; align-items: center; gap: 16px; }
+    .preview-cta { font-size: 0.78rem; font-weight: 700; color: white; background: var(--green); padding: 8px 20px; border-radius: 6px; text-decoration: none; }
+    .preview-cta:hover { background: #155235; }
+    .preview-call { font-size: 0.75rem; color: rgba(255,255,255,0.4); text-decoration: none; }
+    
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 56px; background: rgba(249,248,245,0.97); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.06); }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: var(--black); letter-spacing: -0.01em; }
+    .logo span { color: var(--green); }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-link { font-size: 0.82rem; font-weight: 500; color: var(--gray); text-decoration: none; }
+    .nav-book { font-size: 0.82rem; font-weight: 600; color: white; background: var(--green); padding: 10px 22px; border-radius: 6px; text-decoration: none; }
+    
+    .hero { min-height: 92vh; display: flex; flex-direction: column; justify-content: center; padding: 100px 56px 80px; background: var(--black); position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: 0; right: 0; width: 50%; height: 100%; background: linear-gradient(135deg, rgba(30,107,69,0.08), rgba(30,107,69,0.03)); pointer-events: none; }
+    .hero-tag { display: inline-flex; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #6fcf97; background: rgba(111,207,151,0.1); border: 1px solid rgba(111,207,151,0.2); padding: 6px 14px; border-radius: 100px; margin-bottom: 28px; width: fit-content; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(3rem, 5.5vw, 5rem); line-height: 1.04; letter-spacing: -0.025em; color: white; max-width: 720px; margin-bottom: 24px; }
+    .hero h1 em { font-style: italic; color: #6fcf97; }
+    .hero-sub { font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.45); max-width: 480px; line-height: 1.75; margin-bottom: 40px; }
+    .hero-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .btn-hero { font-size: 0.95rem; font-weight: 700; color: white; background: var(--green); padding: 16px 36px; border-radius: 8px; text-decoration: none; }
+    .btn-ghost { font-size: 0.88rem; font-weight: 500; color: rgba(255,255,255,0.4); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 2px; }
+    .hero-proof { margin-top: 56px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.07); display: flex; gap: 36px; flex-wrap: wrap; }
+    .proof-item { font-size: 0.8rem; color: rgba(255,255,255,0.35); display: flex; align-items: center; gap: 8px; }
+    .proof-dot { width: 4px; height: 4px; border-radius: 50%; background: #6fcf97; flex-shrink: 0; }
+    
+    .services { padding: 100px 56px; background: var(--white); }
+    .section-tag { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 12px; }
+    .services h2 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 14px; max-width: 500px; }
+    .services h2 em { font-style: italic; color: var(--green); }
+    .services-sub { font-size: 0.92rem; font-weight: 300; color: var(--gray); line-height: 1.75; max-width: 480px; margin-bottom: 56px; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(0,0,0,0.05); }
+    .service-card { background: white; padding: 40px 32px; }
+    .service-icon { width: 36px; height: 36px; background: var(--green-light); border-radius: 8px; margin-bottom: 20px; }
+    .service-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 10px; }
+    .service-card p { font-size: 0.82rem; font-weight: 300; color: var(--gray); line-height: 1.7; }
+    
+    .reviews { padding: 80px 56px; background: var(--black); }
+    .reviews h2 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(1.6rem, 2.5vw, 2.2rem); color: white; letter-spacing: -0.02em; margin-bottom: 40px; }
+    .reviews h2 em { font-style: italic; color: #6fcf97; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .review-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 28px 24px; }
+    .review-stars { font-size: 0.7rem; color: #f0c040; letter-spacing: 2px; margin-bottom: 14px; }
+    .review-text { font-size: 0.85rem; font-style: italic; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 16px; }
+    .review-author { font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.3); }
+    
+    .about { padding: 100px 56px; background: var(--light); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-img { aspect-ratio: 4/3; background: linear-gradient(135deg, #d0d0c8, #e8e7e0); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+    .about-img-label { font-size: 0.75rem; color: rgba(0,0,0,0.2); }
+    .about-tag { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 12px; }
+    .about h2 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(1.8rem, 2.5vw, 2.4rem); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .about h2 em { font-style: italic; color: var(--green); }
+    .about p { font-size: 0.9rem; font-weight: 300; color: var(--gray); line-height: 1.8; margin-bottom: 12px; }
+    .about-cta { display: inline-flex; margin-top: 20px; font-size: 0.86rem; font-weight: 600; color: white; background: var(--black); padding: 14px 28px; border-radius: 8px; text-decoration: none; }
+    
+    .cta-section { padding: 80px 56px; background: var(--green); text-align: center; }
+    .cta-section h2 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(1.8rem, 3vw, 2.6rem); color: white; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .cta-section p { font-size: 0.92rem; color: rgba(255,255,255,0.65); margin-bottom: 32px; }
+    .cta-section a { display: inline-flex; font-size: 0.95rem; font-weight: 700; color: var(--green); background: white; padding: 16px 36px; border-radius: 8px; text-decoration: none; }
+    
+    footer { padding: 28px 56px; border-top: 1px solid rgba(0,0,0,0.07); display: flex; justify-content: space-between; align-items: center; }
+    footer p { font-size: 0.75rem; color: var(--gray); }
+    
+    @media (max-width: 900px) {
+      nav, .hero, .services, .reviews, .about, .cta-section, footer { padding-left: 20px; padding-right: 20px; }
+      .services-grid, .reviews-grid { grid-template-columns: 1fr; }
+      .about { grid-template-columns: 1fr; gap: 40px; }
+      .nav-links { display: none; }
+      .preview-banner { flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-banner">
+    <div class="preview-banner-left">This is a <strong>free custom preview</strong> built for your practice by SiteRise — no commitment required</div>
+    <div class="preview-banner-right">
+      <a href="tel:(212) 555-0100" class="preview-call">(212) 555-0100</a>
+      <a href="https://siterise.co/book.html" class="preview-cta">Book a call →</a>
+    </div>
+  </div>
+
+  <nav>
+    <div class="logo">Bright Smile<span>.</span></div>
+    <div class="nav-links">
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#reviews" class="nav-link">Reviews</a>
+      <a href="#book" class="nav-book">Book Appointment</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-tag">Tribeca dental practice</div>
+    <h1>A smile you're<br><em>proud to show.</em></h1>
+    <p class="hero-sub">Modern, gentle care for the whole family. Dr. Chen and the team at Bright Smile Dental are welcoming new patients — same-week appointments available.</p>
+    <div class="hero-actions">
+      <a href="#book" class="btn-hero">Book Your Appointment</a>
+      <a href="#services" class="btn-ghost">See our services</a>
+    </div>
+    <div class="hero-proof">
+      <div class="proof-item"><span class="proof-dot"></span> Accepting new patients</div>
+      <div class="proof-item"><span class="proof-dot"></span> Same-week appointments</div>
+      <div class="proof-item"><span class="proof-dot"></span> Most insurance accepted</div>
+      <div class="proof-item"><span class="proof-dot"></span> Tribeca, NYC</div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <p class="section-tag">What we offer</p>
+    <h2>Everything your smile <em>needs.</em></h2>
+    <p class="services-sub">From routine cleanings to complete smile transformations — comprehensive care in a comfortable, modern environment.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"></div>
+        <h3>General Dentistry</h3>
+        <p>Routine cleanings, exams, fillings, and preventive care to keep your smile healthy for life.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"></div>
+        <h3>Cosmetic Dentistry</h3>
+        <p>Teeth whitening, veneers, bonding, and smile makeovers tailored to your goals.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"></div>
+        <h3>Restorative Care</h3>
+        <p>Crowns, bridges, implants, and dentures — restoring full function and confidence.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"></div>
+        <h3>Emergency Dental</h3>
+        <p>Same-day appointments for urgent dental issues. Call us and we'll get you in.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"></div>
+        <h3>Orthodontics</h3>
+        <p>Invisalign and traditional braces for teens and adults — discreet and effective.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"></div>
+        <h3>Pediatric Care</h3>
+        <p>Gentle, friendly care for children of all ages — building healthy habits early.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <h2>What patients are <em>saying.</em></h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I've been coming here for years and every visit is seamless. The team is professional, gentle, and always on time."</p>
+        <p class="review-author">— Sarah M., Google Review</p>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Best dental experience I've had. Easy to book, no wait time, and they actually explain what they're doing."</p>
+        <p class="review-author">— James T., Google Review</p>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Dr. Chen is incredibly skilled and made me feel at ease. Highly recommend."</p>
+        <p class="review-author">— Rachel K., Google Review</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-img"><span class="about-img-label">Practice photo</span></div>
+    <div>
+      <p class="about-tag">Meet the doctor</p>
+      <h2>Dr. Chen.<br><em>Your partner in care.</em></h2>
+      <p>Dr. Chen has been serving patients for years. With a focus on patient comfort and precision care, Bright Smile Dental has built a reputation as the go-to dental home for families.</p>
+      <p>Great dental care starts with trust — which is why we take the time to understand your goals and explain every step of your treatment.</p>
+      <a href="#book" class="about-cta">Book your first visit</a>
+    </div>
+  </section>
+
+  <section class="cta-section" id="book">
+    <h2>Ready to book?</h2>
+    <p>New patients welcome. Same-week appointments available.</p>
+    <a href="tel:(212) 555-0100">Call to Book — (212) 555-0100</a>
+  </section>
+
+  <footer>
+    <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;">Bright Smile<span style="color:var(--green)">.</span></div>
+    <p>Tribeca, New York · (212) 555-0100</p>
+  </footer>
+</body>
+</html>
